@@ -1,7 +1,7 @@
-tutorial from codecademy                                          https://www.codecademy.com/learn/learn-ruby/modules/learn-ruby-introduction-to-ruby-u/cheatsheet
-+ Пройти урок Introduction to Ruby курса от codecademy:           https://www.codecademy.com/courses/learn-ruby/lessons/introduction-to-ruby/exercises/overview--sneak-peek
-+ Пройти урок Putting the Form in Formatter от codecademy:        https://www.codecademy.com/courses/learn-ruby/lessons/putting-the-form-in-formatter/exercises/what-youll-be-building?action=resume_content_item
-+ Пройти урок Control Flow in Ruby курса от codecademy            https://www.codecademy.com/courses/learn-ruby/lessons/control-flow-in-ruby/exercises/how-it-works?action=resume_content_item
+-+ tutorial from codecademy                                        https://www.codecademy.com/learn/learn-ruby/modules/learn-ruby-introduction-to-ruby-u/cheatsheet
++  Пойти урок Introduction to Ruby курса от codecademy:            https://www.codecademy.com/courses/learn-ruby/lessons/introduction-to-ruby/exercises/overview--sneak-peek
++  Пройти урок Putting the Form in Formatter от codecademy:        https://www.codecademy.com/courses/learn-ruby/lessons/putting-the-form-in-formatter/exercises/what-youll-be-building?action=resume_content_item
++  Пройти урок Control Flow in Ruby курса от codecademy            https://www.codecademy.com/courses/learn-ruby/lessons/control-flow-in-ruby/exercises/how-it-works?action=resume_content_item
 
 Ruby in 100 Minutes (разделы 1-5 и 9-10):                         http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#1.-instructions-&-interpreters
 console boock                                                     https://launchschool.com/books/command_line
