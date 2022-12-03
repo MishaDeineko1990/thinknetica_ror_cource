@@ -1,0 +1,52 @@
+-+ tutorial from codecademy                                        https://www.codecademy.com/learn/learn-ruby/modules/learn-ruby-introduction-to-ruby-u/cheatsheet
++  Пойти урок Introduction to Ruby курса от codecademy:            https://www.codecademy.com/courses/learn-ruby/lessons/introduction-to-ruby/exercises/overview--sneak-peek
++  Пройти урок Putting the Form in Formatter от codecademy:        https://www.codecademy.com/courses/learn-ruby/lessons/putting-the-form-in-formatter/exercises/what-youll-be-building?action=resume_content_item
++  Пройти урок Control Flow in Ruby курса от codecademy            https://www.codecademy.com/courses/learn-ruby/lessons/control-flow-in-ruby/exercises/how-it-works?action=resume_content_item
+
+
+Ruby in 100 Minutes (разделы 1-5 и 9-10):                         http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#1.-instructions-&-interpreters
+console boock                                                     https://launchschool.com/books/command_line
+couree github                                                     https://githowto.com/ru
+
+lasson 2
+-+ Fine style code                                                https://github.com/arbox/ruby-style-guide/blob/master/README-ruRU.md
+-+ Git commit style                                               https://habr.com/ru/post/416887/
+Ruby in 100 Minutes (разделы 4, 6-8): tutorials.jumpstartlab.com  http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html
+Документация к классу Array: ruby-doc.org                         http://ruby-doc.org/core-2.6/Array.html
+Документация к классу Hash: ruby-doc.org                          http://ruby-doc.org/core-2.6/Hash.html
+Обсуждение на форуме: connect.thinknetica.com                     http://connect.thinknetica.com/t/ruby-2/1428
+
+Пройти раздел (unit) Looping with Ruby курса от codecademy: 
+Loops & Iterators: www.codecademy.com                             https://www.codecademy.com/en/courses/learn-ruby/lessons/loops-iterators/exercises/the-while-loop
+Redacted!: www.codecademy.com                                     https://www.codecademy.com/courses/learn-ruby/lessons/redacted/resume
+
+Пройти раздел Arrays and Hashes курса от codecademy:
+Data Structures: www.codecademy.com                               https://www.codecademy.com/courses/learn-ruby/lessons/ruby-data-structures/exercises/creating-arrays
+Create a Histogram: www.codecademy.com                            https://www.codecademy.com/courses/learn-ruby/lessons/ruby-data-structures/exercises/creating-arrays
+
+Пройти раздел Hashes and Symbols курса от codecademy: 
+Hashes and Symbols: www.codecademy.com                            https://www.codecademy.com/courses/learn-ruby/lessons/hashes-and-symbols/resume
+A Night at the Movies: www.codecademy.com                         https://www.codecademy.com/courses/learn-ruby/lessons/a-night-at-the-movies/resume
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

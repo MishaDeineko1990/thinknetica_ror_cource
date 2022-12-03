@@ -10,7 +10,7 @@ print "enter c = "
 c = gets.chomp.to_i
 puts ""
 
-d = b**2-4*a*c
+d = b**2 - 4 * a * c
 
 if d<0
     puts "not sqrt"
