@@ -67,7 +67,7 @@ Months.include? :c  # check on including kay in hash (not work from varlues)
 puts country = {  # Хеш може складатися з ыншого хеша
   "Ukraine" => {
     code: "UA",
-    capital: "Kiyiv"     
+    capital: "Kyiv"     
   }
 }
 

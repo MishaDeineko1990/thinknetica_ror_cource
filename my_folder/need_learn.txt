@@ -17,16 +17,16 @@ Ruby in 100 Minutes (разделы 4, 6-8): tutorials.jumpstartlab.com  http://
 Обсуждение на форуме: connect.thinknetica.com                     http://connect.thinknetica.com/t/ruby-2/1428
 
 Пройти раздел (unit) Looping with Ruby курса от codecademy: 
-Loops & Iterators: www.codecademy.com                             https://www.codecademy.com/en/courses/learn-ruby/lessons/loops-iterators/exercises/the-while-loop
-Redacted!: www.codecademy.com                                     https://www.codecademy.com/courses/learn-ruby/lessons/redacted/resume
++ Loops & Iterators: www.codecademy.com                             https://www.codecademy.com/en/courses/learn-ruby/lessons/loops-iterators/exercises/the-while-loop
++ Redacted!: www.codecademy.com                                     https://www.codecademy.com/courses/learn-ruby/lessons/redacted/resume
 
 Пройти раздел Arrays and Hashes курса от codecademy:
-Data Structures: www.codecademy.com                               https://www.codecademy.com/courses/learn-ruby/lessons/ruby-data-structures/exercises/creating-arrays
-Create a Histogram: www.codecademy.com                            https://www.codecademy.com/courses/learn-ruby/lessons/ruby-data-structures/exercises/creating-arrays
++ Data Structures: www.codecademy.com                               https://www.codecademy.com/courses/learn-ruby/lessons/ruby-data-structures/exercises/creating-arrays
++ Create a Histogram: www.codecademy.com                            https://www.codecademy.com/courses/learn-ruby/lessons/ruby-data-structures/exercises/creating-arrays
 
 Пройти раздел Hashes and Symbols курса от codecademy: 
-Hashes and Symbols: www.codecademy.com                            https://www.codecademy.com/courses/learn-ruby/lessons/hashes-and-symbols/resume
-A Night at the Movies: www.codecademy.com                         https://www.codecademy.com/courses/learn-ruby/lessons/a-night-at-the-movies/resume
++ Hashes and Symbols: www.codecademy.com                            https://www.codecademy.com/courses/learn-ruby/lessons/hashes-and-symbols/resume
++ A Night at the Movies: www.codecademy.com                         https://www.codecademy.com/courses/learn-ruby/lessons/a-night-at-the-movies/resume
 
 
 
