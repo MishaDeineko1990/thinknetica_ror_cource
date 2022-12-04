@@ -35,4 +35,3 @@ end
 puts "------------------------------------"
 puts "TOTAL PRICE IN CART: #{cart_total_price.to_f.round(2)}"
 puts "------------------------------------"
-\n

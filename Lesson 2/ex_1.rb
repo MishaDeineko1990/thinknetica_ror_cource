@@ -14,4 +14,3 @@ Months = {
 }
 
 Months.each { |key, value| puts key if value == 30 }
-\n
