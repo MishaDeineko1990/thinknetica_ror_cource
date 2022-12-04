@@ -18,3 +18,4 @@ n_day_in_year = n_day
 end
 
 puts "Number this day in the year is #{n_day_in_ear}"
+\n
