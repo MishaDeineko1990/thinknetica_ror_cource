@@ -96,13 +96,11 @@ end
 arr4 = [1, 2, 3]
 arr5 = arr4.map {|i| i+100} #Destinations map method change first aray to other aray 
 
-
 #**************cyсles**************
 range2 = (4..100)
 for i in (4..100)
   puts i
 end
-
 
 100.times do |i|
   print "#{i} thenk"
@@ -113,7 +111,6 @@ while index_2 < 100 do
   index_2 += 1
   puts "#{index_2} hi"
 end
-
 
 loop do
   puts "1. Считаем идеальный вес"

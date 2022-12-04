@@ -13,9 +13,9 @@ puts ""
 d = b**2 - 4 * a * c
 
 if d<0
-    puts "not sqrt"
-    exit
-end
+  puts "not sqrt"
+  exit
+ end
 
 puts "x1 = #{((b * -1) + Math.sqrt(d))/(2*a)}"
-puts "x1 = #{((b * -1) - Math.sqrt(d))/(2*a)}"
+puts "x2 = #{((b * -1) - Math.sqrt(d))/(2*a)}"

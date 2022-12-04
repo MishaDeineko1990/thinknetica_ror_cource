@@ -12,7 +12,7 @@ loop do
   print "Enter price goods "
   goods_price = gets.chomp.to_f 
 
-  cart [goods_name] = { goods_quantity: goods_quantity, goods_price: goods_price }
+  cart[goods_name] = { goods_quantity: goods_quantity, goods_price: goods_price }
   
   puts ""
 end
@@ -25,13 +25,13 @@ puts ""
 
 cart_total_price = 0
 
-cart.each do |kay, value|
-  puts "#{kay.inspect} #{value.inspect}"  
-  puts "total price #{kay}: #{value[:goods_quantity] * value[:goods_price]}"
+cart.each do |key, value|
+  puts "#{key.inspect} #{value.inspect}"  
+  puts "total price #{key}: #{(value[:goods_quantity] * value[:goods_price]).to_f.round(2)}"
   cart_total_price += value[:goods_quantity] * value[:goods_price]
   puts ""
 end 
 
 puts "------------------------------------"
-puts "TOTAL PRICE IN CART: #{cart_total_price}"
+puts "TOTAL PRICE IN CART: #{cart_total_price.to_f.round(2)}"
 puts "------------------------------------"

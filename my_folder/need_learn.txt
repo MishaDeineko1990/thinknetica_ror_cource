@@ -27,26 +27,3 @@ Ruby in 100 Minutes (разделы 4, 6-8): tutorials.jumpstartlab.com  http://
 Пройти раздел Hashes and Symbols курса от codecademy: 
 + Hashes and Symbols: www.codecademy.com                            https://www.codecademy.com/courses/learn-ruby/lessons/hashes-and-symbols/resume
 + A Night at the Movies: www.codecademy.com                         https://www.codecademy.com/courses/learn-ruby/lessons/a-night-at-the-movies/resume
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

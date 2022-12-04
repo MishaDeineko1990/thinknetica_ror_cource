@@ -13,5 +13,4 @@ Months = {
   December: 31
 }
 
-Months.each { |kay, value| puts kay if value == 30 }
- 
+Months.each { |key, value| puts key if value == 30 }
