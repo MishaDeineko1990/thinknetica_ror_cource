@@ -26,6 +26,7 @@ arr1.class.methods # oll methods for array
 arr2.include?(2)  # 
 
 arr2 << 6 # add ellements
+arr.insert(index, value)
 
 puts arr3 = ("a".."bb").to_a #create aray from range
 
@@ -81,6 +82,8 @@ puts arr_months[1]
 Months.collect { |i| puts i.class if i[1] == 30 }
 Months.collect { |kay, value| puts kay if value == 30 }
 Months.each { |kay, value| puts kay if value == 30 }
+.map.with_index 
+list.each_with_index { |val, i| puts "#{i + 1}. #{val}" }
 
 h_l = Months.length - 1  # *****range and print month what have 30 deys
 
@@ -102,9 +105,9 @@ for i in (4..100)
   puts i
 end
 
-100.times do |i|
+`100.times do |i|
   print "#{i} thenk"
-end
+end`
 
 index_2 = 0 
 while index_2 < 100 do
