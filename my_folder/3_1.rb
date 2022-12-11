@@ -106,3 +106,17 @@ end
 # car = BigCar.new(5.0,"Viper", 200) #=> 
 # name_variable.name_method  
 # car.speed = 10  
+
+def check_route(route = @route)
+  return false if !route.class == Array # попытка отсекти не Array не роботаеn выкедает, закидаю (integer) Бйот ошибки по методах предназначеных для масивов, типа "не знаю такого метода в интеджера такого метода нету" 
+  route.empty? && !route.map{ |val| true if val.class == String }.include?(nil) # последняя конструкция вернет false ксли хоть один елемент не есть стрингом  (доп. 1) 
+end 
+
+# доп. 1
+    # Шаг 1    ["a", "b", 5].map{ |val| true if val.class == String }    меняем масив через .map{ если клас одного с елементов будет не стрингом вернет в масив елемент nil})  =>  [true, true, nil]
+
+    # Шаг 2    ["a", "b", 5].map{ |val| true if val.class == String }.include?(nil)   конструкция веннет true потому что в масиве есть nil
+
+    # Шаг 3    !["a", "b", 5].map{ |val| true if val.class == String }.include?(nil)    восклицанием с true делаем false
+
+    .instance_variables - show instance varibles
