@@ -30,7 +30,13 @@ arr.insert(index, value)
 
 puts arr3 = ("a".."bb").to_a #create aray from range
 
+values = [10,20,30,40,50]
+values.index 40
+=> 3
 
+values = [10,20,30,40,50]
+values.select {|i| i > 33}
+=> [40, 50]
 
 
 
