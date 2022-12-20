@@ -31,8 +31,13 @@ Ruby in 100 Minutes (разделы 4, 6-8): tutorials.jumpstartlab.com  http://
 crue tutirial                                                     https://ruby-doc.org/core-2.5.1/doc/syntax/literals_rdoc.html
 
 
-Lesso 3   OOP
+Lesson 3   OOP
  важные принципы взаимодействия классов и объектов                http://connect.thinknetica.com/t/topic/6632
  Мини-книга по OOP в Ruby:                                        https://launchschool.com/books/oo_ruby
  Пройти урок Object-Oriented Programming I курса от codecademy:   https://www.codecademy.com/courses/learn-ruby/lessons/object-oriented-programming-i/resume
  Пройти урок Virtual Computer курса от codecademy:                https://www.codecademy.com/courses/learn-ruby/lessons/virtual-computer/resume
+
+Lesson 4
+
+Мини-книга по OOP в Ruby (глава про наследование): launchschool.com  https://launchschool.com/books/oo_ruby/read/introduction
+О различии private и protected в Ruby: rubydev.ru                    http://rubydev.ru/2010/12/ruby-private-protected-public-methods/
