@@ -1,4 +1,6 @@
 class CargoTrain < Train
-  super
-  @type = "cargo"
+  def initialize(name, count_wagon)
+    super
+    @type = "cargo"
+  end
 end

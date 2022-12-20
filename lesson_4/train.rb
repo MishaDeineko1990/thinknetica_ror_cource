@@ -3,7 +3,7 @@ class Train
   
   protected
   
-  def initialize(name, type, count_wagons)
+  def initialize(name, count_wagons)
     @name = name
     @count_wagons = count_wagons
     @speed = 0
