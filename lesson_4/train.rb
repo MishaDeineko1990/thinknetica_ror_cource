@@ -1,6 +1,15 @@
 class Train
+  attr_reader :speed, :count_wagons, :station_position, :name
   
   protected
+  
+  def initialize(name, type, count_wagons)
+    @name = name
+    @count_wagons = count_wagons
+    @speed = 0
+    @route = nil
+    @station_position = nil
+  end
 
   def speed_up
     @speed += 10 if @speed < 210  
@@ -50,24 +59,4 @@ class Train
   def i_curr_st
     @route.list.index @station_position
   end
-end
-
-class PassengerTrain < Train
-
-  attr_reader :speed, :count_wagons, :station_position, :type, :name
-  
-  def initialize(name, type, count_wagons)
-    @name = name
-    @type = type
-    @count_wagons = count_wagons
-    @speed = 0
-    @route = nil
-    @station_position = nil
-  end
-
-
-end  
-
-class CargoTrain < Train
-
 end
