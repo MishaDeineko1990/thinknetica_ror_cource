@@ -1,14 +1,16 @@
 class Train
-  attr_reader :speed, :count_wagons, :station_position, :name
-  
   protected
+  # переношу все методы в protected, чем даю доступ кним дочерним класам, и не даю возможности создания обекта не опредиленного типа
+ 
+  attr_reader :speed, :wagons, :station_position, :name, :type
   
-  def initialize(name, count_wagons)
+  def initialize(name)
     @name = name
-    @count_wagons = count_wagons
+    @wagons = []
     @speed = 0
     @route = nil
     @station_position = nil
+    @type = nil
   end
 
   def speed_up
@@ -23,12 +25,12 @@ class Train
     @speed = 0 
   end
 
-  def add_wagon
-    @count_wagons += 1 if @count_wagons < 100 && @speed == 0 
+  def add_wagon(wagon) # wagons_on_station
+    @wagons << wagon if @type == wagon.type && @wagons.count < 100
   end
 
   def unhok_wagon
-    @count_wagons -= 1 if @count_wagons > 1 && @speed == 0  
+    @wagons.pop if @wagons > 0 && @speed == 0 
   end
  
   def set_route(route)

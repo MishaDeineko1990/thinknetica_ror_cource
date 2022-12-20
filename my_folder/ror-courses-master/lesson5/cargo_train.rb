@@ -1,8 +1,8 @@
 require_relative 'train'
 
 class CargoTrain < Train
-  def initialize(name)
+  def initialize(number)
     super
-    @type = "cargo"
+    @type = 'cargo'
   end
 end
