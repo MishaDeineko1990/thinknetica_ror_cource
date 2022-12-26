@@ -12,10 +12,8 @@ end
 
 def show_list(arr, name = "")
   puts "#{name}"
-  arr.each_with_index do | value, index |
+  arr.each_with_index do |value, index|
       puts "#{index + 1}. #{value}"
-    else
-
   end 
   equal_line
 end
@@ -102,10 +100,16 @@ end
 #   puts "Select a station. (station not select)" if selected_station == nil 
 
 def show_trains_on_station
-  show_list(@stations[@user_station_select].trains, "List trains on station #{@stations[@user_station_select].name}")
+  show_list(@selected_station.trains, "List trains on station #{@selected_station.name}")
   equal_line
 end
 
+# - Назначать маршрут поезду
+def add_route_for_train
+  show_list(@routes)
+  puts "Choose the route to add."
+  selected_route = @routes[gets.to_i - 1]
+end
 #------------- TRAINS --------------
 @trains = []
 
@@ -122,30 +126,26 @@ def create_train
   @trains << CargoTrain.new(name_train) if user_train_type_select  == 1
   @trains << PassengerTrain.new(name_train) if user_train_type_select  == 2
 end
-# - Назначать маршрут поезду
-
-
 #------------- ROUTES --------------
 @routes = []
 # - Создавать маршруты и управлять станциями в нем (добавлять, удалять)
 def create_route
   show_list(@stations)
   puts "Chouse start station:"
-  first_station = Station.stations[gets.to_i - 1]
+  first_station = Station.@stations[gets.to_i - 1]
   show_list(@stations)
-  puts "Chouse start station:"
-  last_station = Station.stations[gets.to_i - 1]
+  puts "Chouse finish station:"
+  last_station = Station.@stations[gets.to_i - 1]
   @routes << Route.new(first_station, last_station) if first_station != last_station 
   equal_line 
 end
 
 def remove_station
   puts "Chouse routes: "
-
-  
+  show_list(@routes)
   number_routes = gets.to_i
   # *****************************????????????????????
-  show_list(@routes[number_routes].list[1, ], "List routes: ")
+  show_list(@routes[number_routes].list[1, -1], "List routes: ")
   puts "Chouse number station"
   number_station = gets.to_i - 1
   @routes[number_station]
