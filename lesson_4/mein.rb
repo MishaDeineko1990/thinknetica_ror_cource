@@ -10,14 +10,12 @@ def equal_line (symbol = "=", count = 40 )
   puts "#{sumbol * count}"
 end
 
-def show_list(arr, name = "", puth = "")
+def show_list(arr, name = "")
   puts "#{name}"
   arr.each_with_index do | value, index |
-    if puth == ""
       puts "#{index + 1}. #{value}"
     else
-       puts "#{index + 1}. #{value + puth}"
-    end
+
   end 
   equal_line
 end
@@ -27,7 +25,7 @@ end
 loop do
   puts "? - Show route menu"
   
-  print "Railway management (Select action number) :"
+  puts "Railway management (Select action number) :"
   chouse_action = gets.chomp
   puts
 
@@ -83,21 +81,27 @@ end
     
 #------------- SATIONS --------------
 @stations = []
+@selected_station = nil
 
 # Создавать станции
 def create_station
-  print "Write name new station: "
+  puts "Write name new station: "
   name = gets.chomp
   @stations << Station.new(name)
   equal_line
 end
 
-@user_station_select = nil
+def chouse_station
+  puts "Chouse station: "
+  list_stations
+  @selected_station = @stations[gets.to_i - 1]
+  puts "You selecned #{@selected_station.name} station"
+end
+
+# def checking_selected_station
+#   puts "Select a station. (station not select)" if selected_station == nil 
 
 def show_trains_on_station
-  print "Chouse station: "
-  list_stations
-  @user_station_select = gets.to_i - 1
   show_list(@stations[@user_station_select].trains, "List trains on station #{@stations[@user_station_select].name}")
   equal_line
 end
@@ -112,7 +116,7 @@ def create_train
   puts "2  Passenger"
   user_train_type_select = gets.to_i
   puts ""
-  print "Name train: "
+  puts "Name train: "
   name_train = gets.chomp
   puts ""
   @trains << CargoTrain.new(name_train) if user_train_type_select  == 1
@@ -126,18 +130,18 @@ end
 # - Создавать маршруты и управлять станциями в нем (добавлять, удалять)
 def create_route
   show_list(@stations)
-  print "Chouse start station:"
+  puts "Chouse start station:"
   first_station = Station.stations[gets.to_i - 1]
   show_list(@stations)
-  print "Chouse start station:"
+  puts "Chouse start station:"
   last_station = Station.stations[gets.to_i - 1]
   @routes << Route.new(first_station, last_station) if first_station != last_station 
   equal_line 
 end
 
 def remove_station
+  puts "Chouse routes: "
 
-  puts "Couse routes: "
   
   number_routes = gets.to_i
   # *****************************????????????????????
