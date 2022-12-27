@@ -21,14 +21,14 @@ def show_select_menu_route
   puts "Menu"
   puts "1.1 - Create station"
   puts "1.2 - Show list station"
+  puts "2.1 - Create train"
+  puts "2.2 - Show list trains"
   # puts "1.3 - Show list station"
 end
 
 #------------- SATIONS --------------
 @stations = []
-@selected_station = nil
 
-# Создавать станции
 def create_station
   puts "Write name new station: "
   name = gets.chomp
@@ -37,15 +37,30 @@ def create_station
   equal_line
 end
 
-# def selcted_station
-#   puts "Chouse station: "
-#   show_list(@stations)
-#   @selected_station = @stations[gets.to_i - 1]
-#   puts "You selecned #{@selected_station.name} station"
-# end
-
 def show_list_station
   show_list(@stations)
+end
+
+#------------- TRAINS --------------
+@trains = []
+
+# - Создавать поезда
+def create_train
+  puts "Chouse type train: "
+  puts "1  Cargo"
+  puts "2  Passenger"
+  user_train_type_select = gets.to_i
+  puts ""
+  puts "Name train: "
+  name = gets.chomp
+  puts ""
+  @trains << CargoTrain.new(name) if user_train_type_select  == 1
+  @trains << PassengerTrain.new(name) if user_train_type_select  == 2
+  puts "Train #{name} is created"
+end
+
+def show_list_trains
+  show_list(@trains)
 end
 
 # ---------------Meny app---------------------
@@ -60,10 +75,10 @@ loop do
     create_station
   when "1.2"
     show_list_station
-  # when "3"
-  #   create_station
-  # when "4"
-  #   create_train
+  when "2.1"
+    create_train
+  when "2.2"
+    show_list_trains
   # when "5"
   #   create_route
   # when "6"
