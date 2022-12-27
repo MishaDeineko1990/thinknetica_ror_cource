@@ -1,6 +1,6 @@
 require_relative 'wagon'
 
 class CargoWagon < Wagon
-  super
+  # super
   @type = "cargo"  
 end  
