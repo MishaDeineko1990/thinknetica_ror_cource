@@ -1,4 +1,6 @@
 # -----Arey-----
+#wiki labery https://ru.wikibooks.org/wiki/Ruby/%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA/Array
+
 
 puts 1 == 1   #=> false
 puts 1.object_id == 1.object_id   #=> false
@@ -11,6 +13,10 @@ arr2 = [1, 2, 3, "hey", "hey"] # arrey can have data in different types
 puts arr1.class # => arrey
 puts arr1.empty?  # => true
 puts arr2.any? # => true 
+
+a = %w{ a b c d e f }
+a.select {|v| v =~ /[aeiou]/}  #=> ["a", "e"]
+
 
 puts arr2.last
 puts arr2.first
