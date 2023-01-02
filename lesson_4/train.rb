@@ -1,18 +1,18 @@
 class Train
-  protected
-  # переношу все методы в protected, чем даю доступ кним дочерним класам, и не даю возможности создания обекта не опредиленного типа
- 
-  attr_reader :speed, :wagons, :station_position, :name, :type
-  
-  def initialize(name)
-    @name = name
-    @wagons = []
-    @speed = 0
-    @route = nil
-    @station_position = nil
-    @type = nil
-  end
+  attr_reader :speed, :wagons, :station_position, :name, :type, :route
 
+  def current_station
+    @station_position 
+  end  
+  
+  def next_station
+    @route.list[i_curr_st + 1] if i_curr_st < @route.list.count
+  end  
+
+  def prev_station
+    @route.list[i_curr_st - 1] if i_curr_st > 0
+  end  
+  
   def speed_up
     @speed += 10 if @speed < 210  
   end
@@ -30,9 +30,9 @@ class Train
   end
 
   def unhok_wagon
-    @wagons.pop if @wagons > 0 && @speed == 0 
+    @wagons.pop if @wagons.count > 0 && @speed == 0 
   end
- 
+
   def set_route(route)
     @route = route
     @station_position = route.list[0]
@@ -46,19 +46,21 @@ class Train
     @station_position = @route.list[i_curr_st - 1] if i_curr_st > 0
   end
 
-  def current_station
-    @station_position 
-  end
+  protected
+  # переношу initialize в protected, чем даю доступ к ним дочерним класам.
+  
+    def initialize(name)
+      @type = nil
+      @name = name
+      @wagons = []
+      @speed = 0
+      @route = nil
+      @ststation_position = nil
+    end  
 
-  def next_station
-    @route.list[i_curr_st + 1] if i_curr_st < @route.list.count
-  end
+  private
 
-  def prev_station
-    @route.list[i_curr_st - 1] if i_curr_st > 0
+    def i_curr_st
+      @route.list.index @station_position
+    end
   end
-
-  def i_curr_st
-    @route.list.index @station_position
-  end
-end

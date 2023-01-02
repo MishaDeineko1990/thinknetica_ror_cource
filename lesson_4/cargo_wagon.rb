@@ -1,6 +1,7 @@
-require_relative 'wagon'
-
-class CargoWagon < Wagon
-  # super
-  @type = "cargo"  
+class CargoWagon
+  attr_reader :type
+  
+  def initialize
+    @type = "cargo"  
+  end 
 end  
