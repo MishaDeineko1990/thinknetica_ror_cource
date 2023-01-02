@@ -32,6 +32,10 @@ def show_list_station
   show_list(@stations)
 end
 
+def show_list_trains_on_station
+  # trains_on_station = @trains.each do value
+end
+
 #------------- TRAINS --------------
 @trains = []
 
