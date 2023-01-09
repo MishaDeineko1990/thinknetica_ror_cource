@@ -33,7 +33,14 @@ def show_list_station
 end
 
 def show_list_trains_on_station
-  # trains_on_station = @trains.each do value
+  show_list(@stations)
+  puts "Choose station:"
+  choose_station = @stations[gets.to_i - 1]
+  puts "List train on station #{choose_station.name}:"
+  
+  trains_on_station = @trains.select {|v| v.station_position == choose_station}
+  show_list(trains_on_station)
+  
 end
 
 #------------- TRAINS --------------
@@ -157,7 +164,7 @@ def show_select_menu_route
   puts "Menu"
   puts "1.1 - Create station"
   puts "1.2 - Show list station"
-  puts "1.2 - Show list trains on station"
+  puts "1.3 - Show list trains on station"
 
   puts ""
   puts "2? show detal info train"
@@ -185,41 +192,40 @@ loop do
   puts
 
   case choose_action
-  when "1.1"
-    create_station
-  when "1.2"
-    show_list_station
-  when "2?"
-    show_detal_info_train
-  when "2.1"
-    create_train
-  when "2.2"
-    show_list_trains
-  when "2.3"    
-    set_route_for_train
-  when "2.4"
-    add_wagon
-  when "2.5"
-    unhok_wagon
-  when "2.6"
-    move_forward
-  when "2.7"
-    move_backward
-  when "3.1"
-    create_route
-  when "3.2"
-    show_list_routes
-  when "3.3"
-    add_station_to_route
-  when "3.4"
-    remove_station_from_route
-  # when "9"
-  #   remove_train_carrige
-  # when "10"
-  #   move_train_forward
-  when "?"
-    show_select_menu_route
-  when "0"
-    break
+    when "1.1"
+      create_station
+    when "1.2"
+      show_list_station
+    when "1.3"
+      show_list_trains_on_station
+    when "2?"
+      show_detal_info_train
+    when "2.1"
+      create_train
+    when "2.2"
+      show_list_trains
+    when "2.3"    
+      set_route_for_train
+    when "2.4"
+      add_wagon
+    when "2.5"
+      unhok_wagon
+    when "2.6"
+      move_forward
+    when "2.7"
+      move_backward
+    when "3.1"
+      create_route
+    when "3.2"
+      show_list_routes
+    when "3.3"
+      add_station_to_route
+    when "3.4"
+      remove_station_from_route
+    when "?"
+      show_select_menu_route
+    when "0"
+      break
   end
+
 end 
