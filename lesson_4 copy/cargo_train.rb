@@ -1,6 +1,6 @@
 require_relative 'train'
 
-module CargoTrain < Train
+class CargoTrain < Train
   attr_reader :type
   def initialize(name)
     super
