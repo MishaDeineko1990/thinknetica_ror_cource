@@ -5,11 +5,22 @@ class Route
     @list = [start_station, finish_station]
   end
 
-  def add(station)
+  def self.add
+    add!
+  end
+  
+  def self.del
+    del!
+  end 
+
+  # скрываю методы от прямого внешнего использования
+  private
+
+  def add!(station)
     @list.insert(@list.count - 1, station)
   end
   
-  def del(station)
+  def del!(station)
     @list.delete(station)
   end 
 end

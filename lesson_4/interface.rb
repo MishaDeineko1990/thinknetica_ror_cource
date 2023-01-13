@@ -1,10 +1,4 @@
-  class Interface
-require_relative 'route'
-require_relative 'station'
-require_relative 'cargo_train'
-require_relative 'passenger_train'
-require_relative 'cargo_wagon'
-require_relative 'passenger_wagon'
+class Interface
     
   def create_station  
     create_station!
@@ -69,9 +63,9 @@ require_relative 'passenger_wagon'
   def  show_select_menu_route
     show_select_menu_route!
   end
+
   private # Переносим все методы в private для отсутствия возможности прямого взаэмодийствия пользоватиля с ними и даем доступ только к main.rb
   
-
   def show_select_menu_route!
     puts "Menu"
     puts "1.1 - Create station"
@@ -95,7 +89,7 @@ require_relative 'passenger_wagon'
     puts "3.4 - Remove station from route"
   end
 
-  # --------------Methods for simple work---------------------
+  # --------------Methods for symple work---------------------
   def equal_line(symbol = "=", count = 40 )
     puts "#{symbol * count}"
   end
