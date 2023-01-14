@@ -25,16 +25,16 @@ class Train
     stop! 
   end
 
-  def add_wagon
-    add_wagon!
+  def add_wagon(wagon)
+    add_wagon!(wagon)
   end
 
   def unhok_wagon
     unhok_wagon! 
   end
 
-  def set_route
-    set_route!
+  def set_route(route)
+    set_route!(route)
   end
   
   def move_forward
@@ -56,8 +56,6 @@ class Train
       @route = nil
       @ststation_position = nil
     end  
-
-  private
 
     def current_station!
       @station_position 
