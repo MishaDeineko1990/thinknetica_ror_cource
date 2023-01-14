@@ -18,7 +18,7 @@ class Station
     list_trains_of_type!(train)
   end
 
-  private
+  private # скиваем методы от прямого влияния на них из вне.
   
     def get_train!(train)
       @trains << train

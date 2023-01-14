@@ -1,10 +1,11 @@
 class Interface
   require_relative 'cargo_train.rb'
+  require_relative 'station.rb'
   require_relative 'cargo_wagon.rb'
   require_relative 'passenger_train.rb'
   require_relative 'passenger_wagon.rb'
   require_relative 'route.rb'
-  require_relative 'station.rb'
+
   
   #-------------Station-----------
   
@@ -63,7 +64,7 @@ class Interface
   def  show_list_routes
     show_list_routes!
   end
-
+  
   def  add_station_to_route
     add_station_to_route!
   end
@@ -72,37 +73,8 @@ class Interface
     remove_station_from_route!
   end
   
-  #------------MENU-----------------
-  
-  def  show_select_menu_route
-    show_select_menu_route!
-  end
-  
-  private # Переносим все методы в private для отсутствия возможности прямого взаэмодийствия пользоватиля с ними и даем доступ только к main.rb
-  
-  def show_select_menu_route!
-    puts "Menu"
-    puts "1.1 - Create station"
-    puts "1.2 - Show list station"
-    puts "1.3 - Show list trains on station"
-    
-    puts ""
-    puts "2? show detal info train"
-    puts "2.1 - Create train"
-    puts "2.2 - Show list trains"
-    puts "2.3 - Set route for train"
-    puts "2.4 - Hok wagon"
-    puts "2.5 - Unhok wagon"
-    puts "2.6 - Move forvard of route"
-    puts "2.7 - Move backward of route"
-  
-    puts ""
-    puts "3.1 - Create route"
-    puts "3.2 - Show list routes"
-    puts "3.3 - Add station to route"
-    puts "3.4 - Remove station from route"
-  end
-  
+  private
+
   # --------------Methods for symple work---------------------
   def equal_line(symbol = "=", count = 40 )
     puts "#{symbol * count}"
@@ -114,11 +86,12 @@ class Interface
     end 
     equal_line
   end
-
+  
   #------------- SATIONS --------------
   @stations = []
   
   def create_station!
+
     puts "Write name new station: "
     name = gets.chomp
     @stations << Station.new(name)
@@ -164,7 +137,7 @@ class Interface
     puts "Train type: #{@trains[number_train].type}"
     puts "Speed: #{@trains[number_train].speed}"
     puts "Count wagons: #{@trains[number_train].wagons.count}"
-    puts "Station position: #{@trains[number_train].route[@trains[number_train].station_position]}" if @trains[number_train].station_position != nil
+    puts "Station position: #{@trains[number_train].station_position.name}" if @trains[number_train].station_position != nil
   end
     
   def create_train!

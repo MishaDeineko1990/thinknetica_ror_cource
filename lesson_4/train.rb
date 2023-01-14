@@ -57,8 +57,8 @@ class Train
       @ststation_position = nil
     end  
 
-  private
-
+  private # скиваем методы от прямого влияния на них из вне.
+  
     def current_station!
       @station_position 
     end  
