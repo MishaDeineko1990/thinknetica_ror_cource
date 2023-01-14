@@ -6,10 +6,19 @@ class Route
   end
 
   def add(station)
-    @list.insert(@list.count - 1, station)
+    add!(station)
   end
   
   def del(station)
+    del!(station)
+  end 
+
+  private
+  def add!(station)
+    @list.insert(@list.count - 1, station)
+  end
+  
+  def del!(station)
     @list.delete(station)
   end 
 end

@@ -6,16 +6,16 @@ class Station
     @trains = []
   end
 
-  def self.get_train
-    get_train!
+  def get_train(train)
+    get_train!(train)
   end
 
-  def self.send_train     
-    send_train!
+  def send_train(train)     
+    send_train!(train)
   end
 
-  def self.list_trains_of_type
-    list_trains_of_type!
+  def list_trains_of_type(train)
+    list_trains_of_type!(train)
   end
 
   private
