@@ -54,7 +54,7 @@ class Train
       @wagons = []
       @speed = 0
       @route = nil
-      @ststation_position = nil
+      @station_position = nil
     end  
 
     def current_station!

@@ -66,7 +66,7 @@ def show_detal_info_train
   puts "Train type: #{@trains[number_train].type}"
   puts "Speed: #{@trains[number_train].speed}"
   puts "Count wagons: #{@trains[number_train].wagons.count}"
-  puts "Station position: #{@trains[number_train].route[@trains[number_train].station_position]}" if @trains[number_train].station_position != nil
+  puts "Station position: #{@trains[number_train].station_position.name}" if @trains[number_train].station_position != nil
 end
   
 def create_train
