@@ -6,6 +6,7 @@ class Station
     @trains = []
   end
 
+<<<<<<< Updated upstream
   def get_train(train)
     @trains << train
   end
@@ -17,4 +18,31 @@ class Station
   def list_trains_of_type(type)
     @trains.select { |train| train.type == type } 
   end
+=======
+  def self.get_train
+    get_train!
+  end
+
+  def self.send_train     
+    send_train!
+  end
+
+  def self.list_trains_of_type
+    list_trains_of_type!
+  end
+
+  private
+  
+    def get_train!(train)
+      @trains << train
+    end
+
+    def send_train!(train)     
+      @trains.delete(train)
+    end
+
+    def list_trains_of_type!(type)
+      @trains.select { |train| train.type == type } 
+    end
+>>>>>>> Stashed changes
 end
