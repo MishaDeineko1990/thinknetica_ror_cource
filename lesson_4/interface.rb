@@ -73,7 +73,7 @@ class Interface
     remove_station_from_route!
   end
   
-  private
+  private  # скрываем методы от прямого влияния на них из вне.
 
   # --------------Methods for symple work---------------------
   def equal_line(symbol = "=", count = 40 )

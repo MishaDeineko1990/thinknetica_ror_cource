@@ -13,7 +13,7 @@ class Route
     del!(station)
   end 
 
-  private # скиваем методы от прямого влияния на них из вне.
+  private # скрываем методы от прямого влияния на них из вне.
 
   def add!(station)
     @list.insert(@list.count - 1, station)
