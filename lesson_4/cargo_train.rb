@@ -1,4 +1,4 @@
-require_relative 'train'
+require_relative 'train.rb'
 
 class CargoTrain < Train
   attr_reader :type

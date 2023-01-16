@@ -6,30 +6,29 @@ class Station
     @trains = []
   end
 
-  def get_train
+  def self.get_train
     get_train!
   end
 
-  def send_train     
+  def self.send_train     
     send_train!
   end
 
-  def list_trains_of_type
+  def self.list_trains_of_type
     list_trains_of_type!
   end
 
-  private
-  # переношу для скрития от прямого влияния на методы класса
+  private 
 
-    def get_train!(train)
-      @trains << train
-    end
+  def get_train(train)
+    @trains << train
+  end
 
-    def send_train!(train)     
-      @trains.delete(train)
-    end
+  def send_train(train)     
+    @trains.delete(train)
+  end
 
-    def list_trains_of_type!(type)
-      @trains.select { |train| train.type == type } 
-    end
+  def list_trains_of_type(type)
+    @trains.select { |train| train.type == type } 
+  end
 end
