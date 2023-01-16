@@ -1,6 +1,6 @@
-require_relative 'train'
+require_relative 'train.rb'
 
-module CargoTrain < Train
+class CargoTrain < Train
   attr_reader :type
   def initialize(name)
     super
