@@ -56,13 +56,6 @@ class Interface
   
   private # Переносим все методы в private для отсутствия возможности прямого взаэмодийствия пользоватиля с ними и даем доступ только к main.rb
 
-  require_relative 'cargo_train.rb'
-  require_relative 'cargo_wagon.rb'
-  require_relative 'passenger_train.rb'
-  require_relative 'passenger_wagon.rb'
-  require_relative 'route.rb'
-  require_relative 'station.rb'
-
   # --------------Methods for symple work---------------------
   def equal_line(symbol = "=", count = 40 )
     puts "#{symbol * count}"
