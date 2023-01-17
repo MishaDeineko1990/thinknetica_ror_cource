@@ -1,5 +1,11 @@
 class Interface
   
+  def initialize
+    @stations = []
+    @trains = []
+    @routes = []
+  end
+  
   def select_route_menu
     loop do
       puts ""  
@@ -56,12 +62,6 @@ class Interface
   require_relative 'passenger_wagon.rb'
   require_relative 'route.rb'
   require_relative 'station.rb'
-  
-  def initialize
-    @stations = []
-    @trains = []
-    @routes = []
-  end
 
   # --------------Methods for symple work---------------------
   def equal_line(symbol = "=", count = 40 )
