@@ -32,6 +32,7 @@ crue tutirial                                                     https://ruby-d
 
 
 Lesson 3   OOP
+
  важные принципы взаимодействия классов и объектов                http://connect.thinknetica.com/t/topic/6632
  Мини-книга по OOP в Ruby:                                        https://launchschool.com/books/oo_ruby
  Пройти урок Object-Oriented Programming I курса от codecademy:   https://www.codecademy.com/courses/learn-ruby/lessons/object-oriented-programming-i/resume
@@ -41,3 +42,17 @@ Lesson 4
 
 Мини-книга по OOP в Ruby (глава про наследование): launchschool.com  https://launchschool.com/books/oo_ruby/read/introduction
 О различии private и protected в Ruby: rubydev.ru                    http://rubydev.ru/2010/12/ruby-private-protected-public-methods/
+
+lasson 5
+
+Методы класса:                                                    https://www.eriktrautman.com/posts/ruby-explained-classes
+Переменные класса:                                                http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/
+Модули и миксины:                                                 https://www.codecademy.com/courses/learn-ruby/lessons/object-oriented-programming-ii/exercises/need-to-know-basis?action=resume_content_item
+Мини-книга по OOP в Ruby (часть про методы и переменные класса):  https://launchschool.com/books/oo_ruby/read/classes_and_objects_part2
+
+Кроме инстанс-переменных и класс-переменных, в Ruby есть еще инстанс-переменные уровня класса (class level instance variables.) Раз класс - это объект класса Class, то как у любого объекта у него могут быть инстанс-переменные. Но при этом они задаются на уровне класса. Они похожи на переменные класса, но ими не являются и отличаются в поведении, например, они не наследуются. При этом, они явялются довольно мощным и удобным инструментом и даже рекомендуются как замена обычным переменным класса.
+
+Подробнее об инстанс-переменных уровня класса можно прочитать здесь:
+https://habrahabr.ru/post/111781/
+http://thoughts.codegram.com/understanding-class-instance-variables-in-ruby/
+http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/
