@@ -6,5 +6,6 @@ require_relative 'passenger_wagon.rb'
 require_relative 'route.rb'
 require_relative 'station.rb'
 require_relative 'manufacturer.rb'
+require_relative 'wagon.rb'
 
 Interface.new.select_route_menu

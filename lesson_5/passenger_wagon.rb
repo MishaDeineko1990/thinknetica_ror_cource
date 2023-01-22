@@ -1,4 +1,6 @@
-class PassengerWagon < Wafon
+require_relative 'wagon.rb'
+
+class PassengerWagon < Wagon
   attr_reader :type
   
   def initialize

@@ -1,14 +1,7 @@
 module Manufacturer
-  attr_reader :show_manufacturer
 
-  def name_manufacturer(name)
-    @name_manufacturer = name
+  module InstanceMethods
+    attr_accessor :manufacturer
   end
 
-  def show_manufacturer
-    @name_manufacturer
-  end
-
-  protected
-  attr_writer :name_manufacturer
 end

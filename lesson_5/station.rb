@@ -1,9 +1,15 @@
 class Station
   attr_reader :trains, :name
+  @@count_all_station = 0
 
   def initialize(name)
     @name = name
     @trains = []
+    @@count_all_station += 1
+  end
+
+  def self.count_all_stations
+    @@count_all_station
   end
 
   def get_train(train)

@@ -20,10 +20,16 @@ class Interface
         create_station
       when "1.2"
         show_list_station
+      when "1.21"
+        count_all_station
       when "1.3"
         show_list_trains_on_station
       when "2?"
         show_detal_info_train
+      when "2_find"
+        find_train_on_number
+      when "2_all"
+        t_all
       when "2.1"
         create_train
       when "2.2"
@@ -74,10 +80,12 @@ class Interface
     puts "Menu"
     puts "1.1 - Create station"
     puts "1.2 - Show list station"
+    puts "1.21 - count_all_station"    
     puts "1.3 - Show list trains on station"
     
     puts ""
-    puts "2? show detal info train"
+    puts "2_find - Find a train on number train"
+    puts "2? Show detal info train"
     puts "2.1 - Create train"
     puts "2.2 - Show list trains"
     puts "2.3 - Set route for train"
@@ -107,6 +115,10 @@ class Interface
     show_list(@stations)
   end
 
+  def count_all_station
+    puts "#{Station.count_all_stations}"
+  end
+
   def show_list_trains_on_station
     show_list(@stations)
     puts "Choose station:"
@@ -118,6 +130,15 @@ class Interface
   end
   
   #------------- TRAINS --------------
+
+ def t_all 
+  puts "#{Train.trains.inspect}"
+ end
+
+  def find_train_on_number
+    puts "write nuber tain what youre find"
+    Train.find(gets.chomp)
+  end
 
   def show_list_trains
     show_list(@trains)
@@ -135,12 +156,12 @@ class Interface
     number_train = choose_train
 
     puts "----Train info-----"
-    puts "Train name: #{@trains[number_train].name}"
-    puts "Manufacturer: #{@trains[number_train].show_manufacturer}"
+    puts "Train name: #{@trains[number_train].number}"
+    puts "Manufacturer: #{@trains[number_train].manufacturer}"
     puts "Train type: #{@trains[number_train].type}"
     puts "Speed: #{@trains[number_train].speed}"
     puts "Count wagons: #{@trains[number_train].wagons.count}"
-    puts "Station position: #{@trains[number_train].route[@trains[number_train].station_position]}" if @trains[number_train].station_position != nil
+    puts "Station position: #{@trains[number_train].station_position.name}" if @trains[number_train].station_position != nil
   end
     
   def create_train
@@ -149,15 +170,15 @@ class Interface
     puts "2  Passenger"
     user_train_type_select = gets.to_i
     puts ""
-    puts "Name train: "
-    name = gets.chomp
+    puts "Number train: "
+    number = gets.chomp
     puts ""
-    @trains << CargoTrain.new(name) if user_train_type_select  == 1
-    @trains << PassengerTrain.new(name) if user_train_type_select  == 2
+    @trains << CargoTrain.new(number) if user_train_type_select  == 1
+    @trains << PassengerTrain.new(number) if user_train_type_select  == 2
     puts "Name Manufacturer: "
-    @trains.last.name_manufacturer(gets.chomp)
+    @trains.last.manufacturer = gets.chomp
     puts ""
-    puts "Train #{name} is created"
+    puts "Train #{number} is created"
   end
 
 
@@ -173,6 +194,10 @@ class Interface
     number_train = choose_train
     @trains[number_train].add_wagon(a = CargoWagon.new) if @trains[number_train].type == "cargo"
     @trains[number_train].add_wagon(a = PassengerWagon.new) if @trains[number_train].type == "passenger"
+  
+    puts "Name Manufacturer: "
+    @trains[number_train].manufacturer = gets.chomp
+    puts ""
   end
 
   def unhok_wagon
