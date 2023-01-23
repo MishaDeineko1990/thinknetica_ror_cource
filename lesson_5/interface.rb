@@ -156,8 +156,8 @@ class Interface
     number_train = choose_train
 
     puts "----Train info-----"
-    puts "Train name: #{@trains[number_train].number}"
-    puts "Manufacturer: #{@trains[number_train].manufacturer}"
+    puts "Train name: #{@trains[number_train].name}"
+    puts "Manufacturer: #{@trains[number_train].show_name_manufacturer}"
     puts "Train type: #{@trains[number_train].type}"
     puts "Speed: #{@trains[number_train].speed}"
     puts "Count wagons: #{@trains[number_train].wagons.count}"
@@ -176,9 +176,9 @@ class Interface
     @trains << CargoTrain.new(number) if user_train_type_select  == 1
     @trains << PassengerTrain.new(number) if user_train_type_select  == 2
     puts "Name Manufacturer: "
-    @trains.last.manufacturer = gets.chomp
+    @trains.last.name_manufacturer(gets.chomp)
     puts ""
-    puts "Train #{number} is created"
+    puts "Train #{name is created}"
   end
 
 
@@ -196,7 +196,7 @@ class Interface
     @trains[number_train].add_wagon(a = PassengerWagon.new) if @trains[number_train].type == "passenger"
   
     puts "Name Manufacturer: "
-    @trains[number_train].manufacturer = gets.chomp
+    @trains[number_train].name_manufacturer(gets.chomp)
     puts ""
   end
 

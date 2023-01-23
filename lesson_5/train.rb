@@ -23,7 +23,12 @@ class Train
   end
 
   def self.find(number)
-    @@trains.select { |train|  train.number == number }
+    @@all.each do |train|
+      if number == train.name
+        return train
+      end
+    end
+    return nil
   end  
   
   def current_station
