@@ -1,17 +1,7 @@
 module InstanceCounter
-  def self.included(caller)
-    caller.extend ClassMethods
-    caller.include InstanceMethods
-  end
-
+  
   module ClassMethods
-    def instances
-      instances!
-    end
-
-    protected
-
-    def instances!
+    def self.instances
       @instances
     end
   end

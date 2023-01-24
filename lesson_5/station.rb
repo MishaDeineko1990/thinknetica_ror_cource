@@ -1,7 +1,6 @@
 class Station
   attr_reader :trains, :name
-  attr
-
+  
   @@all = []
 
   def self.all
