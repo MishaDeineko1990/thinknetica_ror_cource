@@ -20,10 +20,10 @@ class Interface
         create_station
       when "1.2"
         show_list_station
-      when "1.21"
-        count_all_station
       when "1.3"
         show_list_trains_on_station
+      when "1.4"
+        count_station
       when "2?"
         show_detal_info_train
       when "2_find"
@@ -80,7 +80,8 @@ class Interface
     puts "1.1 - Create station"
     puts "1.2 - Show list station"  
     puts "1.3 - Show list trains on station"
-    
+    puts "1.4 - Count Station"
+
     puts ""
     puts "2_find - Find a train on number train"
     puts "2? Show detal info train"
@@ -91,12 +92,14 @@ class Interface
     puts "2.5 - Unhok wagon"
     puts "2.6 - Move forvard of route"
     puts "2.7 - Move backward of route"
+    puts "2.8 - Count train"
     
     puts ""
     puts "3.1 - Create route"
     puts "3.2 - Show list routes"
     puts "3.3 - Add station to route"
     puts "3.4 - Remove station from route"
+    puts "3.5 - Count route"
   end
   
   #------------- SATIONS --------------
@@ -106,6 +109,7 @@ class Interface
     name = gets.chomp
     @stations << Station.new(name)
     puts "Station #{name} is added"
+    @stations.last.register_instance
     equal_line
   end
 
@@ -122,6 +126,11 @@ class Interface
     trains_on_station = @trains.select {|v| v.station_position == choose_station}
     show_list(trains_on_station)    
   end
+
+  def count_station
+    puts "#{Station.instances}"
+  end
+
   
   #------------- TRAINS --------------
 

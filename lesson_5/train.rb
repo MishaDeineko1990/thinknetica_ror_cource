@@ -1,9 +1,12 @@
 require_relative 'manufacturer.rb'
+require_relative 'instance_counter'
 
 class Train
   attr_reader :speed, :wagons, :station_position, :name, :type, :route
 
   include Manufacturer::InstanceMethods
+  include InstanceCounter::InstanceMethods
+  extend InstanceCounter::ClassMethods
   
   @@trains = []
 

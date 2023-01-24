@@ -1,5 +1,10 @@
+require_relative 'instance_counter'
+
 class Station
   attr_reader :trains, :name
+
+  include InstanceCounter::InstanceMethods
+  extend InstanceCounter::ClassMethods
   
   @@all = []
 
@@ -24,4 +29,13 @@ class Station
   def list_trains_of_type(type)
     @trains.select { |train| train.type == type } 
   end
+
+  def register_instance
+    super
+  end
+
+  def self.instances
+    super
+  end
+
 end

@@ -1,5 +1,10 @@
+require_relative 'instance_counter'
+
 class Route
   attr_reader :list
+
+  include InstanceCounter::InstanceMethods
+  extend InstanceCounter::ClassMethods
 
   def initialize(start_station, finish_station)
     @list = [start_station, finish_station]
