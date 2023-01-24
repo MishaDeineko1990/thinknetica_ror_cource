@@ -1,7 +1,7 @@
 require_relative 'manufacturer.rb'
 
 class Train
-  attr_reader :speed, :wagons, :station_position, :number, :type, :route
+  attr_reader :speed, :wagons, :station_position, :name, :type, :route
 
   include Manufacturer::InstanceMethods
   
@@ -14,7 +14,7 @@ class Train
   def initialize(number)
     @name_manufacturer = nil
     @type = nil
-    @number = number
+    @name = number
     @wagons = []
     @speed = 0
     @route = nil
@@ -23,7 +23,7 @@ class Train
   end
 
   def self.find(number)
-    @@all.each do |train|
+    @@trains.each do |train|
       if number == train.name
         return train
       end

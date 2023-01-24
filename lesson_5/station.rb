@@ -1,8 +1,10 @@
 class Station
   attr_reader :trains, :name
+  attr
+
   @@all = []
 
-  def self.show_all
+  def self.all
     @@all
   end
 
