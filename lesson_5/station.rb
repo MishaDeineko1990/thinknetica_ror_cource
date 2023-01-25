@@ -33,9 +33,4 @@ class Station
   def register_instance
     super
   end
-
-  def self.instances
-    super
-  end
-
 end

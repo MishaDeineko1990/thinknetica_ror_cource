@@ -42,6 +42,8 @@ class Interface
         move_forward
       when "2.7"
         move_backward
+      when "2.8"
+        count_trains
       when "3.1"
         create_route
       when "3.2"
@@ -50,6 +52,8 @@ class Interface
         add_station_to_route
       when "3.4"
         remove_station_from_route
+      when "3.5"
+        count_route
       when "?"
         show_select_menu_route
       when "0"
@@ -121,8 +125,7 @@ class Interface
     show_list(@stations)
     puts "Choose station:"
     choose_station = @stations[gets.to_i - 1]
-    puts "List train on station #{choose_station.name}:"
-    
+    puts "List train on station #{choose_station.name}:"    
     trains_on_station = @trains.select {|v| v.station_position == choose_station}
     show_list(trains_on_station)    
   end
@@ -130,10 +133,8 @@ class Interface
   def count_station
     puts "#{Station.instances}"
   end
-
   
   #------------- TRAINS --------------
-
  def t_all 
   puts "#{Train.trains.inspect}"
  end
@@ -187,8 +188,8 @@ class Interface
     @trains.last.name_manufacturer(gets.chomp)
     puts ""
     puts "Train #{@trains.last.name} is created"
+    @trains.last.register_instance
   end
-
 
   def set_route_for_train
     number_train = choose_train
@@ -202,7 +203,6 @@ class Interface
     number_train = choose_train
     @trains[number_train].add_wagon(a = CargoWagon.new) if @trains[number_train].type == "cargo"
     @trains[number_train].add_wagon(a = PassengerWagon.new) if @trains[number_train].type == "passenger"
-  
     puts "Name Manufacturer: "
     @trains[number_train].name_manufacturer(gets.chomp)
     puts ""
@@ -223,6 +223,10 @@ class Interface
     @trains[number_train].move_backward
   end
 
+  def count_station
+    puts "#{Train.instances}"
+  end
+
   #------------- ROUTES --------------
   def create_route
     show_list(@stations)
@@ -233,6 +237,7 @@ class Interface
     last_station = @stations[gets.to_i - 1]
     @routes << Route.new(first_station, last_station) if first_station != last_station 
     puts "Route #{@routes.last.list.first.name} - #{@routes.last.list.last.name} is created"
+    @routes.last.register_instance
     equal_line 
   end
 
@@ -267,5 +272,9 @@ class Interface
     @routes[number_route].add(@stations[number_station])
     show_list_routes([@routes[number_route]])
   end
-  
+
+  def count_station
+    puts "#{Route.instances}"
+  end
+
 end

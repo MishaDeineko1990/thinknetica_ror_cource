@@ -79,6 +79,10 @@ class Train
     @station_position = @route.list[i_curr_st - 1] if i_curr_st > 0
   end
 
+  def register_instance
+    super
+  end
+  
   private
   def i_curr_st
     @route.list.index @station_position

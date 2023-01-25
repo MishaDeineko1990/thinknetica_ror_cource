@@ -17,4 +17,8 @@ class Route
   def del(station)
     @list.delete(station)
   end 
+
+  def register_instance
+    super
+  end
 end
