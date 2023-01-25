@@ -3,11 +3,11 @@ require_relative 'instance_counter'
 class Route
   attr_reader :list
 
-  include InstanceCounter::InstanceMethods
-  extend InstanceCounter::ClassMethods
+  include InstanceCounter
 
   def initialize(start_station, finish_station)
     @list = [start_station, finish_station]
+    self.register_instance
   end
 
   def add(station)
@@ -18,7 +18,4 @@ class Route
     @list.delete(station)
   end 
 
-  def register_instance
-    super
-  end
 end

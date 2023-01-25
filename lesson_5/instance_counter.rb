@@ -1,19 +1,25 @@
 module InstanceCounter
+  def self.included(base)
+    base.class_variable_set :@@instances, 0
+    base.extend ClassMethods
+    base.send :include, InstanceMethods
+  end 
   
   module ClassMethods
-    attr_reader :instances
+    def instances
+      self.class_variable_get :@@instances
+    end
 
-    def self.instances
-      @instances
+    def clear_instances
+      self.class_variable_set :@@instances, 0
     end
   end
 
   module InstanceMethods
     protected
-    
+
     def register_instance
-      self.class.instance_variable_set(:@instances, 0) if !self.class.instance_variable_defined?(:@instances)
-      self.class.instance_variable_set(:@instances, self.class.instance_variable_get(:@instances) + 1)
+      self.class.class_variable_set :@@instances, (self.class.class_variable_get(:@@instances) + 1)
     end
   end
 end

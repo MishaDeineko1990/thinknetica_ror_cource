@@ -113,7 +113,7 @@ class Interface
     name = gets.chomp
     @stations << Station.new(name)
     puts "Station #{name} is added"
-    @stations.last.register_instance
+    # @stations.last.register_instance
     equal_line
   end
 

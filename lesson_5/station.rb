@@ -3,8 +3,7 @@ require_relative 'instance_counter'
 class Station
   attr_reader :trains, :name
 
-  include InstanceCounter::InstanceMethods
-  extend InstanceCounter::ClassMethods
+  include InstanceCounter
   
   @@all = []
 
@@ -16,6 +15,7 @@ class Station
     @name = name
     @trains = []
     self.class.all << self
+    register_instance
   end
 
   def get_train(train)
@@ -28,9 +28,5 @@ class Station
 
   def list_trains_of_type(type)
     @trains.select { |train| train.type == type } 
-  end
-
-  def register_instance
-    super
   end
 end

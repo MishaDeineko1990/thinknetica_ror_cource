@@ -5,8 +5,7 @@ class Train
   attr_reader :speed, :wagons, :station_position, :name, :type, :route
 
   include Manufacturer::InstanceMethods
-  include InstanceCounter::InstanceMethods
-  extend InstanceCounter::ClassMethods
+  include InstanceCounter
   
   @@trains = []
 
@@ -23,6 +22,7 @@ class Train
     @route = nil
     @station_position = nil
     self.class.trains << self
+    self.register_instance
   end
 
   def self.find(number)
@@ -77,10 +77,6 @@ class Train
 
   def move_backward
     @station_position = @route.list[i_curr_st - 1] if i_curr_st > 0
-  end
-
-  def register_instance
-    super
   end
   
   private
