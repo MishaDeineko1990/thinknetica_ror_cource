@@ -24,27 +24,27 @@ module InstanceCounter
   end
 end
 
-# class Train
-#   include InstanceCounter
-#   def initialize
-#     self.register_instance
-#   end
-# end
+class Train
+  include InstanceCounter
+  def initialize
+    self.register_instance
+  end
+end
 
-# train1 = Train.new
-# train2 = Train.new
-# train3 = Train.new
+train1 = Train.new
+train2 = Train.new
+train3 = Train.new
 
-# puts Train.instances
+puts Train.instances
 
-# class Boos
-#   include InstanceCounter
-#   def initialize
-#     self.register_instance
-#   end
-# end
+class Boos
+  include InstanceCounter
+  def initialize
+    self.register_instance
+  end
+end
 
-# boos1 = Boos.new
+boos1 = Boos.new
 
 
-# puts Boos.instances
+puts Boos.instances

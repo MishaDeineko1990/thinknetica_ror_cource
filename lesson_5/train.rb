@@ -1,5 +1,5 @@
 require_relative 'manufacturer.rb'
-require_relative 'instance_counter'
+require_relative 'instance_counter.rb'
 
 class Train
   attr_reader :speed, :wagons, :station_position, :name, :type, :route

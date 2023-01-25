@@ -113,7 +113,6 @@ class Interface
     name = gets.chomp
     @stations << Station.new(name)
     puts "Station #{name} is added"
-    # @stations.last.register_instance
     equal_line
   end
 
@@ -188,7 +187,6 @@ class Interface
     @trains.last.name_manufacturer(gets.chomp)
     puts ""
     puts "Train #{@trains.last.name} is created"
-    @trains.last.register_instance
   end
 
   def set_route_for_train
@@ -224,7 +222,7 @@ class Interface
   end
 
   def count_station
-    puts "#{Train.instances}"
+    puts "#{CargoTrain.instances}"
   end
 
   #------------- ROUTES --------------

@@ -12,10 +12,11 @@ class Station
   end
 
   def initialize(name)
+    super
     @name = name
     @trains = []
     self.class.all << self
-    register_instance
+    self.register_instance
   end
 
   def get_train(train)
