@@ -26,12 +26,7 @@ class Train
   end
 
   def self.find(number)
-    @@trains.each do |train|
-      if number == train.name
-        return train
-      end
-    end
-    return nil
+    @@trains.find {|train| train.name == number }
   end  
   
   def current_station
@@ -78,7 +73,7 @@ class Train
   def move_backward
     @station_position = @route.list[i_curr_st - 1] if i_curr_st > 0
   end
-  
+
   private
   def i_curr_st
     @route.list.index @station_position

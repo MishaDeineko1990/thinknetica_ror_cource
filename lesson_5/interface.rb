@@ -221,8 +221,8 @@ class Interface
     @trains[number_train].move_backward
   end
 
-  def count_station
-    puts "#{CargoTrain.instances}"
+  def count_trains
+    puts "#{Train.instances}"
   end
 
   #------------- ROUTES --------------
@@ -235,7 +235,6 @@ class Interface
     last_station = @stations[gets.to_i - 1]
     @routes << Route.new(first_station, last_station) if first_station != last_station 
     puts "Route #{@routes.last.list.first.name} - #{@routes.last.list.last.name} is created"
-    @routes.last.register_instance
     equal_line 
   end
 
@@ -271,7 +270,7 @@ class Interface
     show_list_routes([@routes[number_route]])
   end
 
-  def count_station
+  def count_route
     puts "#{Route.instances}"
   end
 

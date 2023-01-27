@@ -12,7 +12,6 @@ class Station
   end
 
   def initialize(name)
-    super
     @name = name
     @trains = []
     self.class.all << self
@@ -30,4 +29,5 @@ class Station
   def list_trains_of_type(type)
     @trains.select { |train| train.type == type } 
   end
+
 end
