@@ -109,6 +109,7 @@ class Interface
   #------------- SATIONS --------------
   
   def create_station
+    puts "***#{__method__.to_s}****"
     puts "Write name new station: "
     name = gets.chomp
     @stations << Station.new(name)
@@ -117,10 +118,12 @@ class Interface
   end
 
   def show_list_station
+    puts "***#{__method__.to_s}****"
     show_list(@stations)
   end
 
   def show_list_trains_on_station
+    puts "***#{__method__.to_s}****"
     show_list(@stations)
     puts "Choose station:"
     choose_station = @stations[gets.to_i - 1]
@@ -130,15 +133,18 @@ class Interface
   end
 
   def count_station
+    puts "***#{__method__.to_s}****"
     puts "#{Station.instances}"
   end
   
   #------------- TRAINS --------------
- def t_all 
-  puts "#{Train.trains.inspect}"
- end
+  def t_all 
+    puts "***#{__method__.to_s}****"
+    puts "#{Train.trains.inspect}"
+  end
 
   def find_train_on_number
+    puts "***#{__method__.to_s}****"
     puts "write nuber tain what youre find"
     show_detal_info_train(Train.find(gets.chomp))
   end
@@ -156,6 +162,7 @@ class Interface
   end
 
   def show_detal_info_train(train = 0)
+    puts "***#{__method__.to_s}****"
     if train == 0
       show_list(@trains)
       puts "choose number train"
@@ -173,6 +180,7 @@ class Interface
   end
     
   def create_train
+    puts "***#{__method__.to_s}****"
     puts "Choose type train: "
     puts "1  Cargo"
     puts "2  Passenger"
@@ -190,6 +198,7 @@ class Interface
   end
 
   def set_route_for_train
+    puts "***#{__method__.to_s}****"
     number_train = choose_train
     show_list_routes
     puts "Choose route for set to train: "
@@ -198,35 +207,41 @@ class Interface
   end
 
   def add_wagon
+    puts "***#{__method__.to_s}****"
     number_train = choose_train
     @trains[number_train].add_wagon(a = CargoWagon.new) if @trains[number_train].type == "cargo"
     @trains[number_train].add_wagon(a = PassengerWagon.new) if @trains[number_train].type == "passenger"
     puts "Name Manufacturer: "
-    @trains[number_train].name_manufacturer(gets.chomp)
+    @trains[number_train].wagons.last.name_manufacturer(gets.chomp)
     puts ""
   end
 
   def unhok_wagon
+    puts "***#{__method__.to_s}****"
     number_train = choose_train
     @trains[number_train].unhok_wagon
   end
 
   def move_forward
+    puts "***#{__method__.to_s}****"
     number_train = choose_train
     @trains[number_train].move_forward
   end
 
   def move_backward
+    puts "***#{__method__.to_s}****"
     number_train = choose_train
     @trains[number_train].move_backward
   end
 
   def count_trains
+    puts "***#{__method__.to_s}****"
     puts "#{Train.instances}"
   end
 
   #------------- ROUTES --------------
   def create_route
+    puts "***#{__method__.to_s}****"
     show_list(@stations)
     puts "Choose start station:"
     first_station = @stations[gets.to_i - 1]
@@ -239,6 +254,7 @@ class Interface
   end
 
   def show_list_routes(routes = @routes)
+    puts "***#{__method__.to_s}****"
     routes.each_with_index do |value, index|
       print "#{index + 1}) "
       value.list.each_with_index do |value2, index|
@@ -250,6 +266,7 @@ class Interface
   end
 
   def remove_station_from_route
+    puts "***#{__method__.to_s}****"
     show_list_routes
     puts "Choose route: "
     number_route = gets.to_i - 1
@@ -260,6 +277,7 @@ class Interface
   end
 
   def add_station_to_route
+    puts "***#{__method__.to_s}****"
     show_list_routes
     puts "Choose route: "
     number_route = gets.to_i - 1
@@ -271,6 +289,7 @@ class Interface
   end
 
   def count_route
+    puts "***#{__method__.to_s}****"
     puts "#{Route.instances}"
   end
 
