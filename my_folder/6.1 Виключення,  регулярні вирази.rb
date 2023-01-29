@@ -147,6 +147,14 @@ rescue RuntimeError
     end
 end
 
+
+begin
+    connec_to_wikipedia
+rescue RuntimeError
+    puts ""
+    retry
+end
+
 --------------------------------------------------------
 
 class ClassName
