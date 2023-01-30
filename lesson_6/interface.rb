@@ -5,8 +5,14 @@ class Interface
     @trains = []
     @routes = []
   end
-  
+
   def select_route_menu
+    select_route_menu!
+  end
+
+  private # Переносим все методы в private для отсутствия возможности прямого взаэмодийствия пользоватиля с ними и даем доступ только к main.rb
+  
+  def select_route_menu!
     loop do
       puts ""  
       puts "----------------------------------"  
@@ -19,8 +25,10 @@ class Interface
       when "1.1"
         begin
           create_station
-          rescue RuntimeError
-          puts "The sanction name must contain more than one character"
+          rescue RuntimeError => e
+          puts "#{e.class}: #{e.message}"
+          puts e.backtrace
+          puts "Try again"
           retry
         end
       when "1.2"
@@ -36,8 +44,10 @@ class Interface
       when "2.1"
         begin 
           create_train
-          rescue RuntimeError
-            puts "Number train not valid, try again"
+          rescue RuntimeError=> e
+            puts "#{e.class}: #{e.message}"
+            puts e.backtrace
+            puts "Try again"
           retry
         end      
       when "2.2"
@@ -57,8 +67,10 @@ class Interface
       when "3.1"
         begin 
           create_route
-          rescue RuntimeError
-            puts "Number train not valid, try again"
+          rescue RuntimeError=> e
+            puts "#{e.class}: #{e.message}"
+            puts e.backtrace
+            puts "Try again"
           retry
         end   
       when "3.2"
@@ -77,7 +89,6 @@ class Interface
     end      
   end
   
-  private # Переносим все методы в private для отсутствия возможности прямого взаэмодийствия пользоватиля с ними и даем доступ только к main.rb
 
   # --------------Methods for symple work---------------------
   def equal_line(symbol = "=", count = 40 )
@@ -91,6 +102,16 @@ class Interface
     equal_line
   end
   
+  def catch_exception(method)
+    begin 
+      method
+      rescue RuntimeError=> e
+        puts "#{e.class}: #{e.message}"
+        puts e.backtrace
+        puts "Try again"
+      retry
+    end 
+  end
   #-------------menu-------------
   
   def show_select_menu_route
