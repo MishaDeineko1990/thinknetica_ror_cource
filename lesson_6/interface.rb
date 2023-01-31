@@ -71,7 +71,7 @@ class Interface
             puts "#{e.class}: #{e.message}"
             puts e.backtrace
             puts "Try again"
-          retry
+          retry             
         end   
       when "3.2"
         show_list_routes

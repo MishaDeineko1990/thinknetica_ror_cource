@@ -2,6 +2,7 @@ require_relative 'instance_counter'
 
 class Station
   attr_reader :trains, :name
+  @valid = false
 
   include InstanceCounter
   
@@ -14,9 +15,14 @@ class Station
   def initialize(name)
     @name = name
     @trains = []
-    valid?(name)
+    validate(name)
+    @valid = true
     self.class.all << self
     self.register_instance
+  end
+
+  def valid?
+    @valid
   end
 
   def get_train(train)
@@ -31,9 +37,9 @@ class Station
     @trains.select { |train| train.type == type } 
   end
   protected
-  def valid?(name)
+  def validate(name)
     raise "The sanction name must contain more than one character" if name.length < 2
-    true
+    
   end
 
 end
