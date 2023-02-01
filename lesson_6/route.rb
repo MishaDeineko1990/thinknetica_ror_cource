@@ -8,8 +8,7 @@ class Route
 
   def initialize(start_station, finish_station)
     @list = [start_station, finish_station]
-    validate(@list)
-    @valid = true
+    validate!(@list)
     self.register_instance
   end
 
@@ -22,13 +21,17 @@ class Route
   end
 
   def valid?
-    @valid
+    validate!(@list)
+    true
+  rescue RegexpError
+    false
   end
 
   protected
-  def validate(list)
-    raise "Stations in route must be uniq" if list.uniq.count != list.count
-    
+  ERROR = 'Stations in route must be uniq'
+ 
+  def validate!(list)
+    raise ERROR if list.uniq.count != list.count    
   end
 
 end

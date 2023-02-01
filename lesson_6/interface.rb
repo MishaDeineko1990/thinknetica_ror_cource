@@ -89,7 +89,6 @@ class Interface
     end      
   end
   
-
   # --------------Methods for symple work---------------------
   def equal_line(symbol = "=", count = 40 )
     puts "#{symbol * count}"
@@ -112,8 +111,8 @@ class Interface
       retry
     end 
   end
-  #-------------menu-------------
-  
+
+  #-------------menu-------------  
   def show_select_menu_route
     puts "Menu"
     
@@ -142,8 +141,7 @@ class Interface
     puts "3.5 - Count route"
   end
   
-  #------------- SATIONS --------------
-  
+  #------------- SATIONS --------------  
   def create_station
     puts "***#{__method__.to_s}****"
     puts "Write name new station: "
@@ -328,5 +326,4 @@ class Interface
     puts "***#{__method__.to_s}****"
     puts "#{Route.instances}"
   end
-
 end

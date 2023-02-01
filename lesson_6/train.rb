@@ -9,7 +9,6 @@ class Train
   include InstanceCounter  
 
   @@trains = []
-  @valid = false
 
   def self.trains
     @@trains
@@ -23,14 +22,16 @@ class Train
     @speed = 0
     @route = nil
     @station_position = nil
-    validfate(number)
-    @valid = true
+    validate!(number)
     self.class.trains << self
     self.register_instance
   end
 
   def valid?
-    @valid
+    validate!(@name)
+    true
+  rescue RegexpError
+    false
   end
 
   def self.find(number)
@@ -84,10 +85,10 @@ class Train
 
   private
   VALID_NAME = /^[a-z0-9]{3}-*[a-z0-9]{2}$/i
+  ERROR = 'Wrong type of train number'
  
-  def validate(name)
-    raise 'Wrong type of train number' if name !~ VALID_NAME
-    true
+  def validate!(name)
+    raise ERROR if name !~ VALID_NAME    
   end
 
   def i_curr_st

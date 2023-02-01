@@ -15,14 +15,16 @@ class Station
   def initialize(name)
     @name = name
     @trains = []
-    validate(name)
-    @valid = true
+    validate!(name)
     self.class.all << self
     self.register_instance
   end
 
   def valid?
-    @valid
+    validate!(@name)
+    true
+  rescue RegexpError
+    false
   end
 
   def get_train(train)
@@ -36,10 +38,12 @@ class Station
   def list_trains_of_type(type)
     @trains.select { |train| train.type == type } 
   end
+
   protected
-  def validate(name)
-    raise "The sanction name must contain more than one character" if name.length < 2
-    
+  ERROR = "The sanction name must contain more than one character" if name.length < 2
+ 
+  def validate!(name)
+    raise ERROR  if name.length < 2    
   end
 
 end
