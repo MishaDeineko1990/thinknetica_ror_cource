@@ -1,10 +1,12 @@
 require_relative 'wagon.rb'
 
 class CargoWagon < Wagon
-  attr_reader :type
-  
-  def initialize
-    super
-    @type = "cargo"  
-  end 
+
+  def initialize(count_size)
+    super(sids_size, "cargo")      
+  end
+
+  def fill(num)  
+    @filled += num
+  end
 end  
