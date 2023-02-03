@@ -8,6 +8,5 @@ class PassengerWagon < Wagon
 
   def fill
     @filled += 1
-  end
-  
+  end  
 end  

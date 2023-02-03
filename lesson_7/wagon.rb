@@ -9,4 +9,8 @@ class Wagon
     @filled = 0
     @full_volume = volume
   end
+
+  def available_volume
+    @full_volume - @filled
+  end
 end  
