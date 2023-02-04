@@ -73,15 +73,29 @@ class Train
   def set_route(route)
     @route = route
     @station_position = @route.list[0]
+    @station_position.get_train(self) 
   end
   
-  def move_forward
-    @station_position = @route.list[i_curr_st + 1] if i_curr_st < @route.list.count - 1
+  def move_forward    
+    if i_curr_st < @route.list.count - 1
+      @station_position.send_train(self)
+      @station_position = @route.list[i_curr_st + 1]
+      @station_position.get_train(self)
+    end
   end
 
   def move_backward
-    @station_position = @route.list[i_curr_st - 1] if i_curr_st > 0
+    if i_curr_st > 0
+      @station_position.send_train(self)
+      @station_position = @route.list[i_curr_st + 1]
+      @station_position.get_train(self)
+    end
   end
+
+  def each_block(wagons = @wagons)
+    wagons.each_with_index { |wagon, index| yield(wagon, index) }
+  end
+
 
   private
   VALID_NAME = /^[a-z0-9]{3}-*[a-z0-9]{2}$/i
@@ -93,5 +107,9 @@ class Train
 
   def i_curr_st
     @route.list.index @station_position
+  end
+
+  def index_station_position_all_var
+    Station.all.find_index {|i| i == @station_position }
   end
 end

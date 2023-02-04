@@ -2,7 +2,7 @@ require_relative 'wagon.rb'
 
 class CargoWagon < Wagon
 
-  def initialize(count_size)
+  def initialize(sids_size)
     super(sids_size, "cargo")      
   end
 

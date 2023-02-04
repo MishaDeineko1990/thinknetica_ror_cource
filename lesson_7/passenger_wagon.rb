@@ -3,7 +3,7 @@ require_relative 'wagon.rb'
 class PassengerWagon < Wagon
   
   def initialize(count_size)
-    super(sids_size, "passenger")      
+    super(count_size, "passenger")      
   end
 
   def fill

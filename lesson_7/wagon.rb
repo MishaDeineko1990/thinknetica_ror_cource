@@ -2,7 +2,7 @@ require_relative 'manufacturer.rb'
 
 class Wagon
   include Manufacturer::InstanceMethods
-  attr_reader :type, :filled
+  attr_reader :type, :filled, :full_volume 
 
   def initialize (volume, type)
     @type = type

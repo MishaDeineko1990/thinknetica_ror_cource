@@ -36,6 +36,13 @@ end
 
 m2("abc") {|x| x.capitalize!; puts x}
 
+@wagons = [1, 2]
+  def each_train
+    @wagons.each { |wagon| yield(wagon) }
+  end
+each_train(){|x| puts x}
+
+
 # -----------------Task-------------------
 Для пассажирских вагонов:
  Добавить атрибут общего кол-ва мест (задается при создании вагона)
@@ -70,3 +77,4 @@ m2("abc") {|x| x.capitalize!; puts x}
 
 
 В качестве ответа приложить ссылку на репозиторий с решением
+

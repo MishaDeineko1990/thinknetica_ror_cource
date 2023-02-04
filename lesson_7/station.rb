@@ -2,6 +2,7 @@ require_relative 'instance_counter'
 
 class Station
   attr_reader :trains, :name
+  attr_accessor :all
   @valid = false
 
   include InstanceCounter
@@ -18,6 +19,10 @@ class Station
     validate!(name)
     self.class.all << self
     self.register_instance
+  end
+
+  def each_block(trains = @trains)
+    trains.each_with_index { |train, index| yield(train, index) }
   end
 
   def valid?

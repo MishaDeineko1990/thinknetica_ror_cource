@@ -44,7 +44,7 @@ class Interface
       when "2.1"
         begin 
           create_train
-          rescue RuntimeError=> e
+        rescue RuntimeError=> e
             puts "#{e.class}: #{e.message}"
             puts e.backtrace
             puts "Try again"
@@ -71,8 +71,8 @@ class Interface
             puts "#{e.class}: #{e.message}"
             puts e.backtrace
             puts "Try again"
-          retry             
-        end   
+            retry             
+          end   
       when "3.2"
         show_list_routes
       when "3.3"
@@ -83,6 +83,8 @@ class Interface
         count_route
       when "?"
         show_select_menu_route
+      when "info"
+        text_info
       when "0"
         break
       end    
@@ -101,20 +103,11 @@ class Interface
     equal_line
   end
   
-  def catch_exception(method)
-    begin 
-      method
-      rescue RuntimeError=> e
-        puts "#{e.class}: #{e.message}"
-        puts e.backtrace
-        puts "Try again"
-      retry
-    end 
-  end
-
   #-------------menu-------------  
   def show_select_menu_route
     puts "Menu"
+
+    puts "info - Show oll ellements rails `Program intarface`"
     
     puts "1.1 - Create station"
     puts "1.2 - Show list station"  
@@ -140,7 +133,25 @@ class Interface
     puts "3.4 - Remove station from route"
     puts "3.5 - Count route"
   end
-  
+
+  def text_info
+    @stations.each_with_index do |station, index|
+      equal_line()
+      puts "#{index + 1}. Station: #{station.name}"
+      puts ""
+      puts "Trains on station: #{station.trains.count}"
+      
+      station.each_block do |train, index|
+        puts ""
+        show_detal_info_train(train)
+        equal_line("-")
+        puts "List wagon:"
+        train.each_block do |wagon, index|
+          puts "#{index + 1}. #{wagon.type}, full volume#{wagon.full_volume}, reserved volume: #{wagon.filled}, free volume: #{wagon.available_volume}" 
+        end
+      end
+    end
+  end
   #------------- SATIONS --------------  
   def create_station
     puts "***#{__method__.to_s}****"
@@ -208,8 +219,8 @@ class Interface
       puts "Manufacturer: #{train.show_name_manufacturer}"
       puts "Train type: #{train.type}"
       puts "Speed: #{train.speed}"
-      puts "Count wagons: #{train.wagons.count}"
       puts "Station position: #{train.station_position.name}" if train.station_position != nil
+      puts "Count wagons: #{train.wagons.count}"
 
   end
     
@@ -242,9 +253,17 @@ class Interface
 
   def add_wagon
     puts "***#{__method__.to_s}****"
-    number_train = choose_train
-    @trains[number_train].add_wagon(a = CargoWagon.new) if @trains[number_train].type == "cargo"
-    @trains[number_train].add_wagon(a = PassengerWagon.new) if @trains[number_train].type == "passenger"
+    number_train = choose_train()
+    if @trains[number_train].type == "cargo"      
+      puts "Write value wagon"
+      @trains[number_train].add_wagon(a = CargoWagon.new(gets.chomp.to_i))
+    elsif @trains[number_train].type == "passenger"
+      puts "Write count sits in wagon"
+      @trains[number_train].add_wagon(a = PassengerWagon.new(gets.chomp.to_i))
+    end
+        
+
+
     puts "Name Manufacturer: "
     @trains[number_train].wagons.last.name_manufacturer(gets.chomp)
     puts ""
