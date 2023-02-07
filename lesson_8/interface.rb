@@ -13,7 +13,7 @@ class Interface
 
   private
 
-    def select_route_menu!
+  def select_route_menu!
     loop do
       puts ''
       puts '----------------------------------'
@@ -136,13 +136,13 @@ class Interface
   end
 
   def text_info
-    @stations.each_with_index do |station, index|
+    @stations.each_with_index do |station, i|
       equal_line
-      puts "#{index + 1}. Station: #{station.name}"
+      puts "#{i + 1}. Station: #{station.name}"
       puts ''
       puts "Trains on station: #{station.trains.count}"
 
-      station.each_block do |train, index|
+      station.each_block do |train, ind|
         puts ''
         show_detal_info_train(train)
         equal_line('-')
@@ -346,5 +346,4 @@ class Interface
     puts "***#{__method__}****"
     puts Route.instances.to_s
   end
-  
 end
