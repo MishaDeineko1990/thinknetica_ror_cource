@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module InstanceCounter
   def self.included(base)
     base.class_variable_set :@@instances, 0
@@ -7,11 +9,11 @@ module InstanceCounter
 
   module ClassMethods
     def instances
-      self.class_variable_get :@@instances
+      class_variable_get :@@instances
     end
 
     def clear_instances
-      self.class_variable_set :@@instances, 0
+      class_variable_set :@@instances, 0
     end
   end
 
@@ -45,6 +47,5 @@ end
 # end
 
 # boos1 = Boos.new
-
 
 # puts Boos.instances

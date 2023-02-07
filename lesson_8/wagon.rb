@@ -1,10 +1,12 @@
-require_relative 'manufacturer.rb'
+# frozen_string_literal: true
+
+require_relative 'manufacturer'
 
 class Wagon
   include Manufacturer::InstanceMethods
-  attr_reader :type, :filled, :full_volume 
+  attr_reader :type, :filled, :full_volume
 
-  def initialize (volume, type)
+  def initialize(volume, type)
     @type = type
     @filled = 0
     @full_volume = volume
@@ -13,4 +15,4 @@ class Wagon
   def available_volume
     @full_volume - @filled
   end
-end  
+end

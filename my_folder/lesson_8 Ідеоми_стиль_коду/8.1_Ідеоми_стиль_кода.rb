@@ -17,7 +17,7 @@ end
 class Foo2
   def long_method
     sleep(3)
-    "valid"
+    'valid'
   end
   
   def memorization
@@ -46,10 +46,10 @@ class User
 end
 
 class Color
-  COLOR = {red: "#f00", green: "#0f0", blue: "#00f", white: "#fff"}
+  COLOR = {red: '#f00', green: '#0f0', blue: '#00f', white: '#fff'}
 
   def get_color(color)
-    @code = COLOR[name] || "#000"
+    @code = COLOR[name] || '#000'
   end
 
   alias_method :code, :get_color #Синонім імені метода
@@ -58,14 +58,14 @@ end
 def m(hash)
 
 end
-m("string", a: 1, b: 2) # ми можемо передавати хеш без фігурниг дужок але він має бути останнім аргументом
+m('string', a: 1, b: 2) # ми можемо передавати хеш без фігурниг дужок але він має бути останнім аргументом
 
 class Train
   attr_reader :speed, :wagons, :station_position, :name, :type, :route
 
   def initialize(*args) # додати список аргументів з допомогою масиву (- перечень аргументів, черговий)
-    @name = args[0] || "Unknown"
-    @type = args[1] || "Unknown"
+    @name = args[0] || 'Unknown'
+    @type = args[1] || 'Unknown'
   end
 end
 
@@ -74,7 +74,7 @@ class Train
 
   def initialize(name, options = {}) # # додати список аргументів за допомогою хешу
     @name = name
-    @type = options[:type] || "Unknown"
+    @type = options[:type] || 'Unknown'
   end
 end
 
@@ -82,6 +82,17 @@ train = Train.new
 
 class << train #сінгелтон метод додати метод лише до одного метода класа 
 def m 
-  puts "ffff"
+  puts 'ffff'
 end
 
+# ----------Rubocop------------
+# gem install rubocop & gem install rubocop-performance & gem install rubocop-rails
+# rubocop ./
+# rubocop -a ./ виправити помидки автоматично
+
+# vs etention https://www.youtube.com/watch?v=_UpMxuKOAkU, https://betterprogramming.pub/code-like-a-pro-tooling-to-supercharge-vs-code-for-ruby-bf2ae61df5e3
+
+Код проекта: github.com                                           https://github.com/vkurennov/ror-beginner/tree/master/idioms
+Мастер-класс "Почему код должен быть стильным?": vimeo.com        https://vimeo.com/124210939/ffdb74e6f5
+Ruby Style Guide: github.com                                      https://github.com/bbatsov/ruby-style-guide
+RuboCop: github.com                                               https://github.com/bbatsov/rubocop

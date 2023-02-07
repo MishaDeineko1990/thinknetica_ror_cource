@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require_relative 'train'
 
 class PassengerTrain < Train
   def initialize(name)
     super
-    @type = "passenger"
+    @type = 'passenger'
   end
-end  
+end
