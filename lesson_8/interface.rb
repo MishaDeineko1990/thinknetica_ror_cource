@@ -142,7 +142,7 @@ class Interface
       puts ''
       puts "Trains on station: #{station.trains.count}"
 
-      station.each_block do |train, ind|
+      station.each_block do |train, _ind|
         puts ''
         show_detal_info_train(train)
         equal_line('-')
