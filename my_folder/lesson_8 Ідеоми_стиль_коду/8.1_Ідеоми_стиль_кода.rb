@@ -96,3 +96,5 @@ end
 Мастер-класс "Почему код должен быть стильным?": vimeo.com        https://vimeo.com/124210939/ffdb74e6f5
 Ruby Style Guide: github.com                                      https://github.com/bbatsov/ruby-style-guide
 RuboCop: github.com                                               https://github.com/bbatsov/rubocop
+
+video tutorial for rubocop                                        https://devsimple.ru/posts/rubocop/
