@@ -83,6 +83,7 @@ Foo.class_variable_set :@@y, 46 #set value class variable
 Foo.class_variable_set :@@r, 46 #we can set new class variable
 
 Foo.instance_variable_set :@r, 46 #set instance variable on class
+
 foo_2.instance_variables #list instance variables of class (arrey symbols name variavles)
 foo_2.instance_variable_get :@y #get value class instance variable
 foo_2.instance_variable_set :@y, 46 #set value class instance variable

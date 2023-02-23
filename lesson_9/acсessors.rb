@@ -2,16 +2,30 @@ module Acсessors
 
   def attr_accessor_with_history(*args)
 
-    args.each do |args|
-      arg_name = "@#{args}".to_sym
-      arg_name_history = "@#{args}_history".to_sym
+    SETTER_WITH_HISTORY = proc do |object, name, value|
+      object.instance_variable_set("@#{name}".to_sym, value)
       
-      @history ||= instance_variable_set(arg_name_history, [])
+      variable = object.instance_variable_get("@#{name}_history".to_sym) || []
+      variable << value
+      object.instance_variable_set("@#{name}_history".to_sym, variable)
+    end
 
-      define_method(args) { instance_variable_get(arg_name) }
+    args.each do |arg|
+      var_name = "@#{arg}".to_sym
+
+      define_method("instialize".to_sym) do
+      # def instialize
+        instance_variable_set("#{var_name.to_s}_history".to_sym, [1])
+      end     
       
-      define_method("#{args}=".to_sym) do |value|
-        instance_variable_set(arg_name, value) 
+      define_method(arg) { instance_variable_get(var_name) }
+      
+      define_method("#{arg}=".to_sym) do |value|   
+
+        # temp = self.instance_variable_get("#{var_name.to_s}_history".to_sym) << value
+        # instance_variable_set("#{var_name.to_s}_history".to_sym, temp)
+
+        instance_variable_set(var_name, value)
       end      
       
 
@@ -19,9 +33,7 @@ module Acсessors
       #   instance_variable_set arg_name_history, instance_variable_get arg_name_history << value
       # end
 
-      # define_method("#{args}_history".to_sym) do 
-      #   instance_variable_get(arg_name_history) 
-      # end
+
 
     end        
   end
@@ -36,4 +48,7 @@ end
 
 a1 = Test.new
 a1.a = 12
+a1.a = 20
 puts a1.a
+puts Test.class_variables.inspect
+# puts a1.a_history
