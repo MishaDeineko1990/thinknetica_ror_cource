@@ -2,12 +2,14 @@
 
 require_relative 'manufacturer'
 require_relative 'instance_counter'
+require_relative 'validation'
 
 class Train
   attr_reader :speed, :wagons, :station_position, :name, :type, :route
-
+  
   include Manufacturer::InstanceMethods
   include InstanceCounter
+  include Validation
 
   @@trains = []
 
@@ -23,16 +25,9 @@ class Train
     @speed = 0
     @route = nil
     @station_position = nil
-    validate!(number)
+    validate!
     self.class.trains << self
     register_instance
-  end
-
-  def valid?
-    validate!(@name)
-    true
-  rescue RegexpError
-    false
   end
 
   def self.find(number)
@@ -100,11 +95,8 @@ class Train
   private
 
   VALID_NAME = /^[a-z0-9]{3}-*[a-z0-9]{2}$/i.freeze
-  ERROR = 'Wrong type of train number'
-
-  def validate!(name)
-    raise ERROR if name !~ VALID_NAME
-  end
+  
+  validate :name, :format, VALID_NAME
 
   def i_curr_st
     @route.list.index @station_position
