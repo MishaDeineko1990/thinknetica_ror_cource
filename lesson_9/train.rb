@@ -27,8 +27,8 @@ class Train
     @station_position = nil
     self.class.validate "name", :format, VALID_NAME
     validate!
-    self.class.trains << self if valid?
-    register_instance if valid?
+    self.class.trains << self
+    register_instance
   end
 
   def self.find(number)
