@@ -10,13 +10,13 @@ class Train
   include Manufacturer::InstanceMethods
   include InstanceCounter
   include Validation
-
+  
   @@trains = []
-
+  
   def self.trains
     @@trains
   end
-
+  
   def initialize(number)
     @name_manufacturer = nil
     @type = nil
@@ -25,9 +25,10 @@ class Train
     @speed = 0
     @route = nil
     @station_position = nil
+    self.class.validate "name", :format, VALID_NAME
     validate!
-    self.class.trains << self
-    register_instance
+    self.class.trains << self if valid?
+    register_instance if valid?
   end
 
   def self.find(number)
@@ -95,8 +96,6 @@ class Train
   private
 
   VALID_NAME = /^[a-z0-9]{3}-*[a-z0-9]{2}$/i.freeze
-  
-  validate :name, :format, VALID_NAME
 
   def i_curr_st
     @route.list.index @station_position

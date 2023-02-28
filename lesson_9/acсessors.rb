@@ -27,21 +27,24 @@ module Accessors
 
 end
 
+
+
+
 class Test
   extend Accessors
   strong_attr_accessor("a2", String)
   attr_accessor_with_history :my_attr, :a, :b, :c
 end
 
-a1 = Test.new
+# a1 = Test.new
 
-a1.a2 = "Weee"
-puts a1.a2
+# a1.a2 = "Weee"
+# puts a1.a2
 
-a1.a = 12
-a1.a = 20
-a1.a = 22
-a1.a = 24
-puts a1.a
-puts Test.class_variables.inspect
-puts a1.a_history.inspect
+# a1.a = 12
+# a1.a = 20
+# a1.a = 22
+# a1.a = 24
+# puts a1.a
+# puts Test.class_variables.inspect
+# puts a1.a_history.inspect

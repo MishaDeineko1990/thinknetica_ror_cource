@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 require_relative 'instance_counter'
+require_relative 'validation'
+
 
 class Station
   include InstanceCounter
+  include Validation
 
   attr_reader :trains, :name
   attr_accessor :all
@@ -17,6 +20,7 @@ class Station
   def initialize(name)
     @name = name
     @trains = []
+    valid?
     self.class.all << self
     register_instance
   end

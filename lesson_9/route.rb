@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require_relative 'instance_counter'
+require_relative 'validation'
+
+include Validation
 
 class Route
   attr_reader :list
@@ -11,7 +14,7 @@ class Route
 
   def initialize(start_station, finish_station)
     @list = [start_station, finish_station]
-    validate!(@list)
+    valid?
     register_instance
   end
 

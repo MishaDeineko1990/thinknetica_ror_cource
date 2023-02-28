@@ -35,7 +35,7 @@ module Validation
   end
 
   def format(value, regex, *_options)
-    raise "Value does not match format #{:message if :message}" unless value.to_s.match?(regex)
+    raise "Value does not match format" unless value.to_s.match?(regex)
   end
 
   def type(value, v_class)
@@ -60,7 +60,7 @@ end
 
 # b = MyClass.new
 # b.name = "WER"
-# puts "b is valid #{b.valid?}"
+# puts "b is valid #{b.validate!}"
 
 # c = MyClass.new
 # c.name = 12
