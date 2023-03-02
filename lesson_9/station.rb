@@ -20,7 +20,6 @@ class Station
   def initialize(name)
     @name = name
     @trains = []
-    valid?
     self.class.all << self
     register_instance
   end
