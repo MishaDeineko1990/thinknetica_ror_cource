@@ -61,7 +61,23 @@ class Diler < Player
     super("Diler")
   end
 
+  def move_action
+    take_card = false
 
+    points = 0
+    self.hend.each {|i| points += i[1]}
+
+    case points
+      when < 10
+        take_card = true
+      when < 12
+        take_card = rand < 0.9
+      when < 14
+        take_card = rand < 0.45
+      when < 17
+        take_card = rand < 0.1
+      end
+  end
 end
 
 class Game < Blac_jeck_core
@@ -99,12 +115,12 @@ class Game < Blac_jeck_core
     puts "#{player.name} card on hend #{close_card ? "[*]" * player.hend.count: player.hend.inspect } = #{close_card ? "*" : sum}"
   end
 
-  def make_move(player, ch_ect = false)
+  def make_move(player)
     puts ""
     puts "Write 1 if want open cards" 
     puts "Write 2 if want take card" if player.hend.count < 3
     puts "Write 3 if want make to pass" if player.hend.count < 3 || @move_plaers[player] == 3
-    choose_action = !ch_ect ? gets.chomp : gets.chomp
+    choose_action = player.name == "Diler" ? player.move_action : gets.chomp
     case choose_action
       when '1'
         @move_plaers[player] = 3
@@ -137,7 +153,6 @@ class Interface
       a = gets.chomp
     end
   end
-
 end
 
 @interface = Interface.new
