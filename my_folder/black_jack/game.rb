@@ -61,7 +61,7 @@ class Diler < Player
     super("Diler")
   end
 
-  def move_action
+  def move_action(game)
     take_card = false
 
     points = 0
@@ -76,7 +76,9 @@ class Diler < Player
         take_card = rand < 0.45
       when < 17
         take_card = rand < 0.1
-      end
+    end
+
+    take_card && self.hend.count < 2 ? self.add_card(game.get_card)
   end
 end
 
@@ -120,7 +122,7 @@ class Game < Blac_jeck_core
     puts "Write 1 if want open cards" 
     puts "Write 2 if want take card" if player.hend.count < 3
     puts "Write 3 if want make to pass" if player.hend.count < 3 || @move_plaers[player] == 3
-    choose_action = player.name == "Diler" ? player.move_action : gets.chomp
+    choose_action = player.name == "Diler" ? player.move_action(self) : gets.chomp
     case choose_action
       when '1'
         @move_plaers[player] = 3
